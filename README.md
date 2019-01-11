@@ -107,6 +107,7 @@ each repository:
     superwidget:
       src: https://upstream.example.net/repos/superwidget
       branch: master
+      tag: My_Release_Name
       head: 4817590950ca0b52d3336011a1abdbb6f906e23228c5857cc0f7703828f6966f
       extra:
         - https://private.example.com/repos/superwidget-alpha
@@ -119,10 +120,11 @@ Each repository member object should have:
   - a `src` member, which provides the address whence to fetch the
     source repository;
   - a `branch` member, which defines the branch being tracked for
-    builds;
+    builds. This is optional if `tag` is used;
+  - a `tag` member is optional, which defines the tag being tracked for builds, superceded by `branch` if `branch` is set;
   - a `head` member, which is an explicit changeset hash to build; and
   - an optional `extra` member, which is a list of extra source
     addresses that should be fetched in addition to the primary `src`.
 
 When building, `branch` is ignored; `head` controls. `branch` is used to
-update `head` with `tsb update`.
+update `head` with `tsb update`. I
